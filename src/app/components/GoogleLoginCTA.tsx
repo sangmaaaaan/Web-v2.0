@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const GoogleLoginCTA = () => {
   const handleGoogleLogin = () => {
-    signIn('google', {callbackUrl : "/home"});
+    signIn('google', {callbackUrl : "/main"});
   };
 
   return (
