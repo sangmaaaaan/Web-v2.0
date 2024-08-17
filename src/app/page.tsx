@@ -22,7 +22,7 @@ const Home = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.push("/home");
+      router.push("/main");
     }
   }, [status]);
 

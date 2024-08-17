@@ -37,7 +37,7 @@ const SummariesPage = () => {
     <div className="w-full flex flex-col">
         <CourseInfo number = {0} />
         <div className="flex flex-row justify-between pt-1">
-        <div className="w-fullflex flex-col overflow-y-scroll h-[calc(100vh-170px)]" onScroll={handleScroll}>
+        <div className="w-full flex flex-col overflow-y-scroll h-[calc(100vh-170px)]" onScroll={handleScroll}>
             {dummyText1.map((item, index) => (
               <div key={index} className="w-full  flex flex-row">
                 <div className={`w-1/2 p-4 ${index % 2 === 0 ? 'bg-[#3C3C3C]' : 'bg-[#2C2C2C]'}`}>
