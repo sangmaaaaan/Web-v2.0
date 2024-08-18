@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@types/next": "^9.0.0",
+    "@types/react-dropzone": "^5.1.0",
+    "@types/react-modal": "^3.16.3",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
-    "react-lottie-player": "^2.1.0"
+    "react-lottie-player": "^2.1.0",
+    "react-modal": "^3.16.1"
   },
   "devDependencies": {
     "@types/node": "^20",
