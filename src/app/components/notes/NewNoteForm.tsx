@@ -26,7 +26,7 @@ const NewNoteForm = () => {
   };
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
-
+  
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsModalOpen(true);
@@ -92,7 +92,7 @@ const NewNoteForm = () => {
                     <p className="mb-1 text-sm text-[#D9D9D9]">
                       <span className="font-normal">파일을 업로드 하거나 클릭하세요</span>
                     </p>
-                    <p className="text-xs text-gray-500">&apos;파일 첨부&apos;를 클릭하거나 음성 파일을 직접 끌어다 놓으세요.(파일 길이: 최대 120분, 지원 형식: m4a, mp3, wav)</p>
+                    <p className="text-xs text-gray-500">&apos;파일 첨부&apos;를 클릭하거나 영상 파일을 직접 끌어다 놓으세요.(파일 길이: 최대 120분, 지원 형식: mp4,mov)</p>
                   </div>
                   <div className="mt-3 flex flex-col justify-end items-end">
                   <button className="pr-3 pl-2 py-2 flex flex-row gap-1 rounded-md bg-[#5F5F5F]">

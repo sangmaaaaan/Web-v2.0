@@ -6,6 +6,8 @@ import SectionFolder from '@/app/components/section/SectionFolder';
 import CTANewSection from '@/app/components/button/CTANewSection';
 import SectionModal from '@/app/components/modal/SectionModal';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 const Home = () => {
   const [sections, setSections] = useState<{ subject: string; professor: string; name: string }[]>([]);
   const [showModal, setShowModal] = useState(false);
@@ -16,6 +18,8 @@ const Home = () => {
       setSections(JSON.parse(storedSections));
     }
   }, []);
+
+  const router = useRouter(); // useRouter 훅 사용
 
   useEffect(() => {
     localStorage.setItem('sections', JSON.stringify(sections));
@@ -74,7 +78,8 @@ const Home = () => {
                 subject={section.subject} 
                 professor={section.professor} 
                 onEdit={(subject, professor) => handleEdit(index, subject, professor)} 
-                onDelete={() => handleDelete(index)} 
+                onDelete={() => handleDelete(index)}
+                onClick={() => router.push('/createNotes')}
               />
             ))}
           </div>

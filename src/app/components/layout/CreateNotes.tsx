@@ -6,7 +6,7 @@ import SectionInfo from '@/app/components/section/SectionInfo';
 import { notes, Note } from '@/app/constants/notes';
 import { Section } from '@/app/constants/folders';
 
-const classNotes: React.FC = () => {
+const ClassNotes: React.FC = () => {
 
     const [sections, setSections] = useState<{ subject: string; professor: string; name: string }[]>([]);
     useEffect(() => {
@@ -77,4 +77,4 @@ const NoteList: React.FC<NoteListProps> = ({ notes }) => {
     );
 };
 
-export default classNotes;
+export default ClassNotes;

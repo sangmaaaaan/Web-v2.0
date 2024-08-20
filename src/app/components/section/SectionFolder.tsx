@@ -2,16 +2,16 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import SectionModify from '../modal/SectionModify';
-import Link from 'next/link';
 
 interface SectionFolderProps {
   subject: string;
   professor: string;
   onEdit: (subject: string, professor: string) => void;
   onDelete: () => void;
+  onClick: () => void; // onClick 속성 추가
 }
 
-const SectionFolder: React.FC<SectionFolderProps> = ({ subject, professor, onEdit, onDelete }) => {
+const SectionFolder: React.FC<SectionFolderProps> = ({ subject, professor, onEdit, onDelete, onClick }) => {
   const [showModify, setShowModify] = useState(false);
 
   const handleMenuClick = () => {
@@ -20,17 +20,16 @@ const SectionFolder: React.FC<SectionFolderProps> = ({ subject, professor, onEdi
 
   return (
     <div className="relative items-center">
-      <Link href = "/classNotes">
+      <div onClick={onClick}> {/* onClick 이벤트 추가 */}
         <Image 
           src="/folder.svg" 
           alt="folder"
           width={240}
           height={140}
           className="cursor-pointer"
-          onClick={handleMenuClick}
         />
-      </Link>
-      <div className = "flex justify-between w-full px-3 mt-[-60px]">
+      </div>
+      <div className="flex justify-between w-full px-3 mt-[-60px]">
         <div className="flex flex-col">
           <p className="font-Pretendard text-[20px] text-mainBlack">{subject}</p>
           <p className="font-Pretendard text-[14px] text-mainBlack/[0.4]">{professor}</p>

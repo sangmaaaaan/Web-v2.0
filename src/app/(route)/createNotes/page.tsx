@@ -20,7 +20,7 @@ const NewNotePage: React.FC = () => {
         <NewNoteForm />
         {/* 노트만들기 버튼 */}
         <div className = "p-8">
-          <CTANewNote />
+          <CTANewNote link='/paper'/>
         </div>
       </div>
     </div>
