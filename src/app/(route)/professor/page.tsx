@@ -6,7 +6,8 @@ import SectionFolder from '@/app/components/section/SectionFolder';
 import CTANewSection from '@/app/components/button/CTANewSection';
 import SectionModal from '@/app/components/modal/SectionModal';
 import { useEffect } from 'react';
-const professor = () => {
+import { useRouter } from 'next/navigation';
+const Professor = () => {
   const [sections, setSections] = useState<{ subject: string; professor: string; name: string }[]>([]);
   const [showModal, setShowModal] = useState(false);
   
@@ -16,6 +17,8 @@ const professor = () => {
       setSections(JSON.parse(storedSections));
     }
   }, []);
+
+  const router = useRouter(); // useRouter 훅 사용
 
   useEffect(() => {
     localStorage.setItem('sections', JSON.stringify(sections));
@@ -48,7 +51,7 @@ const professor = () => {
       <Sidebar sections={sections}/>
       <div className="w-full flex flex-col justify-between">
         <div className="px-8 py-8 font-Pretendard font-semibold leading-[70px] text-[57px] text-custom-green">
-          안녕하세요 김대원 교수님,<br/>
+          안녕하세요 하OO 교수님,<br/>
           교수님을 도와드릴 AI Tutor예요!
         </div>
         <div className="border-t-2 h-[600px] border-r-2 border-l-2 border-[#929292]/[0.4] rounded-t-xl rounded-r-ml rounded-l-ml bg-[#242424]">
@@ -75,8 +78,9 @@ const professor = () => {
                 professor={section.professor} 
                 onEdit={(subject, professor) => handleEdit(index, subject, professor)} 
                 onDelete={() => handleDelete(index)} 
-              />
-            ))}
+                onClick={() => router.push('/createNotes')} // 클릭 시 해당 ID로 라우팅
+              /> 
+            ))} 
           </div>
         </div>
       </div>
@@ -84,4 +88,4 @@ const professor = () => {
   );
 };
 
-export default professor;
+export default Professor;

@@ -10,8 +10,8 @@ const NewQuestionForm = () => {
         <p className="font-Pretendard font-semibold text-2xl">복습 문제 생성</p>
         <p className="font-Pretendard text-md text-[#A6A6A6]">복습 문제 생성 옵션을 선택해주세요.</p>
       </div>
-      <div className="flex flex-row place-items-start mb-8">
-        <p className="pr-6">문제 개수</p>
+      <div className="flex flex-row place-items-start pb-8">
+        <p className="pr-6 mt-2 place-items-end">문제 개수</p>
         <div className="flex flex-col space-y-4">
           <div className="flex flex-row space-x-8 place-items-center">
             <SelectRoundButton label="AI 추천" onClick={() => console.log('AI 추천')} />

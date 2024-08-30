@@ -5,7 +5,7 @@ import Sidebar from '@/app/components/layout/Sidebar';
 import CTANewNote from '@/app/components/button/CTANewNote';
 import NewQuestionForm from '@/app/components/notes/NewQuestionForm';
 
-const paper: React.FC = () => {
+const Paper: React.FC = () => {
   const [sections, setSections] = useState<{ subject: string; professor: string; name: string }[]>([]);
   useEffect(() => {
     const storedSections = localStorage.getItem('sections');
@@ -21,11 +21,11 @@ const paper: React.FC = () => {
         <NewQuestionForm />
         {/* 노트만들기 버튼 */}
         <div className = "p-8">
-          <CTANewNote />
+          <CTANewNote link="/questionSelect" />
         </div>
       </div>
     </div>
   );
 };
 
-export default paper;
+export default Paper;

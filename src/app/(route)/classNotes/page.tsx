@@ -12,7 +12,7 @@ interface NoteListProps {
   notes: Note[];
 }
 
-const classNotes: React.FC = () => {
+const ClassNotes: React.FC = () => {
   const [sections, setSections] = useState<{ subject: string; professor: string; name: string }[]>([]);
   useEffect(() => {
     const storedSections = localStorage.getItem('sections');
@@ -74,4 +74,4 @@ const NoteList: React.FC<NoteListProps> = ({ notes }) => {
   );
 };
 
-export default classNotes;
+export default ClassNotes;

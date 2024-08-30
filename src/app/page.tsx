@@ -1,78 +1,35 @@
 "use client";
-
-import Lottie from "react-lottie-player";
-import lottieJson from "../../public/BouncingBall.json";
 import Image from "next/image";
-import Link from "next/link";
-import GoogleLoginCTA from "./components/GoogleLoginCTA";
-import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
-
+import React from 'react';
 const Home = () => {
-  
-  const [isClient, setIsClient] = useState(false);
-  const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    setIsClient(typeof window !== 'undefined');
-  }, []);
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      router.push("/main");
-    }
-  }, [status]);
-
+  const handleProfessorClick = () => {
+    console.log('professor 클릭');
+    router.push('/auth');
+  };
+  
   return (
-
-    <main className="w-full h-screen bg-bgGray flex flex-row">
-      <section className="text-mainWhite w-full">
-        <div className="fixed py-8 px-8">
-          <Link href="/home">
-            <Image src="/icon.svg" alt="logo" width={100} height={100} />
-          </Link>
+    <div className="flex flex-row bg-bgDeepGray">
+      <div className="w-full h-lvh flex flex-col justify-center items-center">
+        <div className="px-8 py-8 font-Pretendard font-semibold leading-[70px] text-[57px] text-custom-green">
+          회원님의 신분을 선택해주세요
         </div>
-        <div className="h-full flex flex-col justify-center px-8 items-start">
-          <div className="flex flex-col relative justify-start items-start">
-            {isClient && (
-              <div className="h-[70px] w-[70px] z-10 ml-[-20px]">
-                <Lottie loop animationData={lottieJson} play />
-              </div>
-            )}
-            <section className="overflow-hidden">
-              <div className="animate-[textAnimation_8s_infinite]">
-                <p className="font-Pretendard font-normal text-[28px] block">
-                  AI Tutor와 함께 학습 효과를 높여보세요!
-                </p>
-                <p className="font-Pretendard font-normal text-[28px] block">
-                  1단계 : 강의원문과 요약노트를 비교하며 학습해보세요
-                </p>
-                <p className="font-Pretendard font-normal text-[28px] block">
-                  2단계 : 서술형 문제를 풀이하며 학습 이해도를 점검해보세요
-                </p>
-                <p className="font-Pretendard font-normal text-[28px] block">
-                  3단계 : AI Tutor에게 질문을 통해 모르는 부분을 보완해보세요
-                </p>
-                <p className="font-Pretendard font-normal text-[28px] block">
-                  이제 AI Tutor와 함께 학습하러 가볼까요?
-                </p>
-              </div>
-            </section>
-          </div>
+        <div className="flex justify-center items-center space-x-4">
+          <button className="bg-primaryGray text-white font-Pretendard text-[18px] hover:bg-custom-green active:bg-custom-green rounded-lg px-16 py-8 space-y-4" onClick={handleProfessorClick}>
+            <Image src="professor.svg" alt="logo" width={100} height={100} />
+            <p className="font-Pretendard font-normal text-2xl">교수자</p>
+          </button>
+            <button className="bg-[#242424] text-[#4F4F4F] font-Pretendard text-[18px] rounded-lg px-16 py-8 space-y-4" disabled>
+              <Image src="student.svg" alt="logo" width={100} height={100} style={{ opacity: 0.2 }} />
+              <p className="font-Pretendard font-normal text-2xl">학생</p>
+            </button>
         </div>
-      </section>
-      <section className="flex flex-col justify-center items-center px-[112px] bg-bgDeepGray">
-        <div className="text-mainWhite font-Pretendard font-normal text-[24px] px-4 py-4">
-          <p>자기주도학습 시작하기</p>
-        </div>
-        <GoogleLoginCTA />
-      </section>
-    </main>
+        <p className="font-Pretendard font-normal text-center text-gray-500 mt-2">학생 서비스는 현재 준비중입니다 :)<br/>빠른 시일 내로 준비하도록 하겠습니다.</p>
+      </div>
+    </div>
   );
 };
 
 export default Home;
-
